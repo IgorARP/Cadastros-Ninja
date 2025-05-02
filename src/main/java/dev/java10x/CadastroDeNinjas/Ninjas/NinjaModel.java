@@ -9,16 +9,28 @@ import lombok.NoArgsConstructor;
 //Entity transforma uma classe comum em uma entidade no banco de dados
 @Entity
 @Table(name = "tb_cadastro")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+
 public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "nome")
     private String nome;
+
+    @Column(unique = true)
     private String email;
+
+    @Column(name = "img_url")
+    private String imgUrl;
+
+
+    @Column(name = "idade")
     private int idade;
 
     //Um ninja tem uma única missão
